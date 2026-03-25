@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import SocialLink from "@/components/SocialLink";
 
 const TwitterIcon = () => (
@@ -19,23 +20,43 @@ const SpotifyIcon = () => (
 );
 
 const Index = () => {
+  const glowRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (glowRef.current) {
+        glowRef.current.style.left = `${e.clientX}px`;
+        glowRef.current.style.top = `${e.clientY}px`;
+      }
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
-    <div className="relative min-h-screen bg-background flex flex-col">
-      {/* Subtle ambient glow */}
-      <div className="fixed top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/[0.02] rounded-full blur-[100px] pointer-events-none" />
+    <div className="relative min-h-screen bg-background font-['Inter',sans-serif] flex flex-col overflow-hidden cursor-none sm:cursor-auto">
+      {/* Cursor glow */}
+      <div
+        ref={glowRef}
+        className="fixed w-[300px] h-[300px] rounded-full pointer-events-none z-0 -translate-x-1/2 -translate-y-1/2 hidden sm:block"
+        style={{
+          background: "radial-gradient(circle, hsla(0,0%,100%,0.06) 0%, transparent 70%)",
+          willChange: "left, top",
+        }}
+      />
 
       <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 py-16">
         <div className="w-full max-w-sm space-y-12">
           {/* Avatar & Name */}
           <div className="text-center space-y-4">
-            <div className="mx-auto h-20 w-20 rounded-full border border-muted-foreground/20 flex items-center justify-center text-2xl font-extralight text-foreground/80">
+            <div className="mx-auto h-20 w-20 rounded-full border border-foreground/10 flex items-center justify-center text-2xl font-extralight text-foreground/70">
               R
             </div>
             <div className="space-y-1.5">
               <h1 className="text-sm font-normal text-foreground/90 tracking-[0.3em] uppercase">
                 Ramiro
               </h1>
-              <p className="text-[10px] text-muted-foreground/40 tracking-[0.2em] uppercase">
+              <p className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase">
                 Digital Space
               </p>
             </div>
@@ -43,35 +64,20 @@ const Index = () => {
 
           {/* Divider */}
           <div className="flex justify-center">
-            <div className="w-8 border-t border-muted-foreground/15" />
+            <div className="w-8 border-t border-foreground/10" />
           </div>
 
           {/* Links */}
           <div className="space-y-3">
-            <SocialLink
-              href="https://x.com/EliteUk_"
-              icon={<TwitterIcon />}
-              label="Twitter / X"
-              description="@EliteUk_"
-            />
-            <SocialLink
-              href="https://www.tiktok.com/@e1teuk"
-              icon={<TikTokIcon />}
-              label="TikTok"
-              description="@e1teuk"
-            />
-            <SocialLink
-              href="https://open.spotify.com/playlist/0wd3FBxmmGAhBpGV4RfdQO"
-              icon={<SpotifyIcon />}
-              label="Spotify"
-              description="Playlist"
-            />
+            <SocialLink href="https://x.com/EliteUk_" icon={<TwitterIcon />} label="Twitter / X" description="@EliteUk_" />
+            <SocialLink href="https://www.tiktok.com/@e1teuk" icon={<TikTokIcon />} label="TikTok" description="@e1teuk" />
+            <SocialLink href="https://open.spotify.com/playlist/0wd3FBxmmGAhBpGV4RfdQO" icon={<SpotifyIcon />} label="Spotify" description="Playlist" />
           </div>
         </div>
       </main>
 
       <footer className="relative z-10 px-8 py-6">
-        <p className="text-[10px] text-muted-foreground/25 tracking-wider">© 2026 e1te.info</p>
+        <p className="text-[10px] text-muted-foreground/40 tracking-wider">© 2026 e1te.info</p>
       </footer>
     </div>
   );
