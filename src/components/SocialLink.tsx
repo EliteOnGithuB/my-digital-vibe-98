@@ -13,16 +13,16 @@ const SocialLink = ({ href, icon, label, description }: SocialLinkProps) => (
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="group relative flex items-center rounded-2xl border border-border/50 bg-card/30 backdrop-blur-md px-8 py-6 transition-all duration-500 hover:border-primary/20 hover:bg-card/50 hover:shadow-[0_0_40px_-12px_hsl(var(--primary)/0.15)]"
+    className="group flex items-center rounded-xl border border-border/40 bg-card/30 px-5 py-4 transition-colors duration-300 hover:border-primary/20 hover:bg-card/50"
   >
-    <div className="flex h-10 w-10 shrink-0 items-center justify-center text-muted-foreground/70 transition-colors duration-500 group-hover:text-primary">
+    <div className="flex h-8 w-8 shrink-0 items-center justify-center text-muted-foreground/60 transition-colors duration-300 group-hover:text-primary">
       {icon}
     </div>
-    <div className="flex-1 text-center pr-4">
-      <p className="text-[13px] font-medium tracking-[0.2em] text-foreground/90 uppercase transition-colors duration-500 group-hover:text-foreground">{label}</p>
-      <p className="text-[11px] text-muted-foreground/60 mt-1 tracking-wider">{description}</p>
+    <div className="flex-1 text-center pr-3">
+      <p className="text-xs font-medium tracking-[0.15em] text-foreground/85 uppercase">{label}</p>
+      <p className="text-[10px] text-muted-foreground/50 mt-0.5">{description}</p>
     </div>
-    <ArrowUpRight className="h-4 w-4 text-muted-foreground/30 shrink-0 transition-all duration-500 group-hover:text-primary/60 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+    <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground/25 shrink-0 transition-colors duration-300 group-hover:text-primary/50" />
   </a>
 );
 
