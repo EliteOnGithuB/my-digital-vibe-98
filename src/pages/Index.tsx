@@ -20,54 +20,65 @@ const SpotifyIcon = () => (
 
 const Index = () => {
   return (
-    <div className="relative min-h-screen bg-background font-['Space_Grotesk',sans-serif] flex flex-col">
-      <main className="flex-1 flex flex-col items-center justify-center px-4 py-16">
-        <div className="w-full max-w-lg space-y-10">
+    <div className="relative min-h-screen bg-background font-['Space_Grotesk',sans-serif] flex flex-col overflow-hidden">
+      {/* Subtle ambient glow */}
+      <div className="fixed top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/[0.03] rounded-full blur-[120px] pointer-events-none" />
+
+      <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 py-20">
+        <div className="w-full max-w-md space-y-16">
           {/* Avatar & Name */}
-          <div className="text-center space-y-4">
-            <div className="mx-auto h-24 w-24 rounded-full border border-muted-foreground/40 flex items-center justify-center text-3xl font-light text-foreground">
+          <div className="text-center space-y-6 animate-fade-in" style={{ animationDuration: '0.8s' }}>
+            <div className="mx-auto h-28 w-28 rounded-full border border-muted-foreground/20 flex items-center justify-center text-3xl font-extralight text-foreground/80 bg-card/20 backdrop-blur-sm">
               E
             </div>
-            <div className="space-y-1">
-              <h1 className="text-lg font-medium text-foreground tracking-[0.3em] uppercase">
-                E L I T E U K
+            <div className="space-y-2">
+              <h1 className="text-base font-light text-foreground/90 tracking-[0.35em] uppercase">
+                EliteUk
               </h1>
-              <p className="text-xs text-muted-foreground tracking-[0.2em] uppercase">Digital Space</p>
+              <p className="text-[11px] text-muted-foreground/40 tracking-[0.25em] uppercase font-light">
+                Digital Space
+              </p>
             </div>
           </div>
 
           {/* Divider */}
-          <div className="flex justify-center">
-            <div className="w-12 border-t border-muted-foreground/30" />
+          <div className="flex justify-center animate-fade-in" style={{ animationDuration: '1s', animationDelay: '0.2s', animationFillMode: 'both' }}>
+            <div className="w-8 border-t border-muted-foreground/15" />
           </div>
 
           {/* Links */}
-          <div className="space-y-3">
-            <SocialLink
-              href="https://x.com/EliteUk_"
-              icon={<TwitterIcon />}
-              label="Twitter / X"
-              description="@EliteUk_"
-            />
-            <SocialLink
-              href="https://www.tiktok.com/@e1teuk"
-              icon={<TikTokIcon />}
-              label="TikTok"
-              description="@e1teuk"
-            />
-            <SocialLink
-              href="https://open.spotify.com/playlist/0wd3FBxmmGAhBpGV4RfdQO"
-              icon={<SpotifyIcon />}
-              label="Spotify"
-              description="Playlist"
-            />
+          <div className="space-y-4">
+            <div className="animate-fade-in" style={{ animationDuration: '0.6s', animationDelay: '0.3s', animationFillMode: 'both' }}>
+              <SocialLink
+                href="https://x.com/EliteUk_"
+                icon={<TwitterIcon />}
+                label="Twitter / X"
+                description="@EliteUk_"
+              />
+            </div>
+            <div className="animate-fade-in" style={{ animationDuration: '0.6s', animationDelay: '0.45s', animationFillMode: 'both' }}>
+              <SocialLink
+                href="https://www.tiktok.com/@e1teuk"
+                icon={<TikTokIcon />}
+                label="TikTok"
+                description="@e1teuk"
+              />
+            </div>
+            <div className="animate-fade-in" style={{ animationDuration: '0.6s', animationDelay: '0.6s', animationFillMode: 'both' }}>
+              <SocialLink
+                href="https://open.spotify.com/playlist/0wd3FBxmmGAhBpGV4RfdQO"
+                icon={<SpotifyIcon />}
+                label="Spotify"
+                description="Playlist"
+              />
+            </div>
           </div>
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="px-6 py-6">
-        <p className="text-xs text-muted-foreground/50">© 2026 e1te.info</p>
+      <footer className="relative z-10 px-8 py-8">
+        <p className="text-[10px] text-muted-foreground/25 tracking-wider font-light">© 2026 e1te.info</p>
       </footer>
     </div>
   );
