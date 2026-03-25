@@ -1,6 +1,4 @@
-import heroBg from "@/assets/hero-bg.jpg";
 import SocialLink from "@/components/SocialLink";
-import { Music, MessageCircle } from "lucide-react";
 
 const TwitterIcon = () => (
   <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
@@ -22,25 +20,25 @@ const SpotifyIcon = () => (
 
 const Index = () => {
   return (
-    <div className="relative min-h-screen bg-background font-['Space_Grotesk',sans-serif]">
-      {/* Background image */}
-      <div className="fixed inset-0 opacity-30">
-        <img src={heroBg} alt="" className="h-full w-full object-cover" width={1920} height={1080} />
-      </div>
-      <div className="fixed inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
-
-      {/* Content */}
-      <main className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 py-16">
-        <div className="w-full max-w-md space-y-8">
+    <div className="relative min-h-screen bg-background font-['Space_Grotesk',sans-serif] flex flex-col">
+      <main className="flex-1 flex flex-col items-center justify-center px-4 py-16">
+        <div className="w-full max-w-lg space-y-10">
           {/* Avatar & Name */}
-          <div className="text-center space-y-3">
-            <div className="mx-auto h-24 w-24 rounded-full border-2 border-primary/30 bg-secondary flex items-center justify-center text-3xl font-bold text-primary">
+          <div className="text-center space-y-4">
+            <div className="mx-auto h-24 w-24 rounded-full border border-muted-foreground/40 flex items-center justify-center text-3xl font-light text-foreground">
               E
             </div>
-            <div>
-              <h1 className="text-2xl font-semibold text-foreground tracking-tight">EliteUk</h1>
-              <p className="text-muted-foreground text-sm mt-1">Music · Content · Culture</p>
+            <div className="space-y-1">
+              <h1 className="text-lg font-medium text-foreground tracking-[0.3em] uppercase">
+                E L I T E U K
+              </h1>
+              <p className="text-xs text-muted-foreground tracking-[0.2em] uppercase">Digital Space</p>
             </div>
+          </div>
+
+          {/* Divider */}
+          <div className="flex justify-center">
+            <div className="w-12 border-t border-muted-foreground/30" />
           </div>
 
           {/* Links */}
@@ -48,8 +46,8 @@ const Index = () => {
             <SocialLink
               href="https://x.com/EliteUk_"
               icon={<TwitterIcon />}
-              label="X / Twitter"
-              description="Follow for updates"
+              label="Twitter / X"
+              description="@EliteUk_"
             />
             <SocialLink
               href="https://www.tiktok.com/@e1teuk"
@@ -60,12 +58,17 @@ const Index = () => {
             <SocialLink
               href="https://open.spotify.com/playlist/0wd3FBxmmGAhBpGV4RfdQO"
               icon={<SpotifyIcon />}
-              label="Spotify Playlist"
-              description="Listen now"
+              label="Spotify"
+              description="Playlist"
             />
           </div>
         </div>
       </main>
+
+      {/* Footer */}
+      <footer className="px-6 py-6">
+        <p className="text-xs text-muted-foreground/50">© 2026 e1te.info</p>
+      </footer>
     </div>
   );
 };
