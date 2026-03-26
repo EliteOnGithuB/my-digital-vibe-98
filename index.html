@@ -219,6 +219,38 @@
         position: relative;
         z-index: 10;
         padding: 1.5rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .footer-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1.25rem;
+        border-radius: 100px;
+        border: 1px solid rgba(255,255,255,0.08);
+        background: rgba(255,255,255,0.04);
+        color: rgba(255,255,255,0.7);
+        font-size: 0.625rem;
+        font-weight: 400;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: border-color 0.3s, background 0.3s, color 0.3s;
+      }
+      .footer-cta:hover {
+        border-color: rgba(255,255,255,0.2);
+        background: rgba(255,255,255,0.08);
+        color: rgba(255,255,255,0.9);
+      }
+      .footer-cta svg {
+        width: 12px;
+        height: 12px;
+      }
+
+      .footer-copy {
         font-size: 0.625rem;
         color: rgba(255,255,255,0.15);
         letter-spacing: 0.08em;
@@ -277,7 +309,13 @@
       </div>
     </main>
 
-    <footer>© 2026 e1te.info</footer>
+    <footer>
+      <a href="https://discord.com/users/820246612264747038" target="_blank" rel="noopener noreferrer" class="footer-cta">
+        Get in touch
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+      <span class="footer-copy">© 2026 e1te.info</span>
+    </footer>
 
     <script>
       const glow = document.getElementById('glow');
